@@ -20,7 +20,7 @@ NOTA: Es importante que antes de hacer el push nos loguiemos a nuestra cuenta de
 ## Creacion de directorios para los volumenes 
  Una vez lista la imagen, necesitaremos 2 volumenes para este proyecto. En 1 tendremos nuestros archivos estaticos, principalmente archivos de diseño para css como los colores de los tipos de los pokemones por ejemplo. Mientras que en el otro tendremos los archivos html que seran la estructura de la pagina. 
 
-1. Primero crearemos los volumenes: 
+1. Primero crearemos los directorios: 
 
 ```bash
 sudo mkdir /var/flask/pokedex/templates
