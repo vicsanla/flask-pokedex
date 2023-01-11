@@ -1,10 +1,9 @@
 pipeline {
     agent any
     environment{
- //       ServerDeploy="192.168.0.17"
- //       DOCKERHUB_CREDENCIALS = credentials ('credencials-dockerhub')
+        DOCKERHUB_CREDENCIALS = credentials ('dockerhub-creds')
         RepoDockerHub = 'zdenkoo98'
-        NameContainer = 'nodeapp_parcial'
+        NameContainer = ''
     }
 
     stages {
@@ -14,17 +13,17 @@ pipeline {
             }
         }
 
- //       stage('Login to Dockerhub'){
- //           steps{
- //               sh "echo $DOCKERHUB_CREDENCIALS_PSW | docker login -u $DOCKERHUB_CREDENCIALS_USR //--password-stdin "
- //           }
-  //      }
+        stage('Login to Dockerhub'){
+            steps{
+                sh "echo $DOCKERHUB_CREDENCIALS_PSW | docker login -u $DOCKERHUB_CREDENCIALS_USR //--password-stdin "
+            }
+        }
 
- //       stage('Push image to Dockerhub'){
- //           steps{
- //               sh "docker push ${env.RepoDockerHub}/${env.NameContainer}:${env.BUILD_NUMBER} "
- //           }
- //       }
+        stage('Push image to Dockerhub'){
+            steps{
+                sh "docker push ${env.RepoDockerHub}/${env.NameContainer}:${env.BUILD_NUMBER} "
+            }
+        }
 
 
   //      stage('Deploy to DEV'){
