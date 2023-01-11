@@ -39,7 +39,7 @@ pipeline {
 
         stage('Deploy container'){
             steps{
-                sh "docker run -d --name ${env.NameContainer}" -p 3000:3000 ${env.RepoDockerHub}/${env.NameContainer}:${env.BUILD_NUMBER}
+                sh "docker run -d --name ${env.NameContainer} -p 3000:3000 ${env.RepoDockerHub}/${env.NameContainer}:${env.BUILD_NUMBER}"
             }
         }
 
