@@ -3,7 +3,7 @@ pipeline {
     environment{
         DOCKERHUB_CREDENCIALS = credentials ('dockerhub-creds')
         RepoDockerHub = 'zdenkoo98'
-        NameContainer = ''
+        NameContainer = 'pokedex-flask'
     }
 
     stages {
