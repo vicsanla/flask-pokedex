@@ -30,11 +30,11 @@ pipeline {
                 sh "if [ 'docker stop ${env.NameContainer}' ] ; then docker rm -f ${env.NameContainer} && docker run -d --name ${env.NameContainer} -p 5000:5000 ${env.RepoDockerHub}/${env.NameContainer}:${env.BUILD_NUMBER} ; else docker run -d --name pokedex-flask -p 5000:5000 ${env.RepoDockerHub}/${env.NameContainer}:${env.BUILD_NUMBER} ; fi"
             }
         }
-        //
-        //stage('Docker logout'){
-        //    steps{
-        //        sh "docker logout"
-        //    }
-        //}
+        
+        stage('Docker logout'){
+            steps{
+                sh "docker logout"
+            }
+        }
     }
 }
