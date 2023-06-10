@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-        DOCKERHUB_CREDENCIALS = credentials ('dockerhub-creds')
+        DOCKERHUB_CREDENCIALS = credentials ('dockerhub')
         RepoDockerHub = 'zdenkoo98'
         NameContainer = 'pokedex-flask'
     }
