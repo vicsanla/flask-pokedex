@@ -1,30 +1,30 @@
 pipeline {
     agent any
-    //environment{
-        //DOCKERHUB_CREDENCIALS = credentials ('dockerhub-creds')
-        //RepoDockerHub = 'zdenkoo98'
-        //NameContainer = 'pokedex-flask'
-    //}
+    environment{
+        DOCKERHUB_CREDENCIALS = credentials ('dockerhub-creds')
+        RepoDockerHub = 'zdenkoo98'
+        NameContainer = 'pokedex-flask'
+    }
 
     stages {
         stage('Build'){
             steps{
-                sh "docker build -t zdenkoo98/pokedex-flask:${env.BUILD_NUMBER} ."
+                sh "docker build -t ${env.RepoDockerHub}/${env.NameContainer}:${env.BUILD_NUMBER} ."
             }
         }
 
-        //stage('Login to Dockerhub'){
-        //    steps{
-        //        sh "echo $DOCKERHUB_CREDENCIALS_PSW | docker login -u $DOCKERHUB_CREDENCIALS_USR --password-stdin "
-        //    }
-        //}
-//
-        //stage('Push image to Dockerhub'){
-        //    steps{
-        //        sh "docker push ${env.RepoDockerHub}/${env.NameContainer}:${env.BUILD_NUMBER} "
-        //    }
-        //}
-//
+        stage('Login to Dockerhub'){
+            steps{
+                sh "echo $DOCKERHUB_CREDENCIALS_PSW | docker login -u $DOCKERHUB_CREDENCIALS_USR --password-stdin "
+            }
+        }
+
+        stage('Push image to Dockerhub'){
+            steps{
+                sh "docker push ${env.RepoDockerHub}/${env.NameContainer}:${env.BUILD_NUMBER} "
+            }
+        }
+
         //stage('Stop container') {
         //    steps{
         //        sh "docker stop ${env.NameContainer}"
