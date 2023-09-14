@@ -4,7 +4,7 @@ FROM python:latest
 RUN mkdir /app
 WORKDIR /app
 #Copiamos nuestros archivos a nuestro directorio principal de trabajo
-ADD app/* /app/
+ADD . /app/
 #Instalamos las dependencias de la aplicacion 
 RUN pip install -r requirements.txt
 #Creamos una variable para no tener que especificar el nombre del archivo .py en el cmd
