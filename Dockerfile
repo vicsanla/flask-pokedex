@@ -12,4 +12,5 @@ RUN export FLASK_APP=app.py
 #El puerto expuesto es el default de flask, el 5000
 EXPOSE 5000
 #El comando ejecutado sera python -m flask run --host 0.0.0.0, de esta forma podremos acceder de forma correcta al servicio
-CMD ["python", "-m", "flask", "run", "--host", "0.0.0.0"]
+ENTRYPOINT ["python"]
+CMD ["-m", "flask", "run", "--host", "0.0.0.0"]
